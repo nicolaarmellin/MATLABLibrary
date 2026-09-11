@@ -81,7 +81,7 @@ function ax = Scatter_(parent,xData,yData,zData,cData,opts)
     end
     if opts.gridOn,        grid(ax,"on");                                                                                           end
     if opts.axisEqual,     AxisEqual_(ax,"margin",opts.axisMargin,"centerOrigin",opts.centerOrigin,"tightLimits",opts.tightLimits); end
-    if opts.axisHighlight, AxisHighlight_(ax,is2D);                                                                                 end
+    if opts.axisHighlight, AxisHighlight_(ax,"is2D",is2D);                                                                          end
 
     % set position if axes is inside a grid
     SetAxesPosition_(ax,opts.layoutPos);

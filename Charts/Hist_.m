@@ -77,7 +77,7 @@ function ax = Hist_(parent,data,opts)
     if ~isempty(opts.yTickLabels), yticklabels(ax,opts.yTickLabels);                                                                      end
     if opts.gridOn,                grid(ax,"on");                                                                                         end
     if opts.legendOn,              Legend_(ax,opts.legendEntries,nSeries,mask,"location",opts.legendLocation,"fontSize",opts.fontSize-2); end
-    if opts.axisHighlight,         AxisHighlight_(ax,true);                                                                               end
+    if opts.axisHighlight,         AxisHighlight_(ax);                                                                                    end
 
     % set position if axes is inside a grid
     SetAxesPosition_(ax,opts.layoutPos);
