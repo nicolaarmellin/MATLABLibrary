@@ -1,20 +1,20 @@
 %% Nicola Armellin — RaceUP Hybrid
 %
-%  LINEARIZEMDL Linearize a Simscape mechanical model (translational, rotational, or Multibody) around the operating point.
+%  LINEARIZEMDL Linearize a Simscape mechanical model (translational, rotational, or Multibody) around an operating point.
 %
 %  Usage:
 %    [sys,op] = LinearizeMDL(mdl,io,time)
-%    [sys,op] = LinearizeMDL(mdl,io,NaN,"trim")
+%    [sys,op] = LinearizeMDL(mdl,io,0,"trim")
 %
 %  Inputs:
 %    mdl     —  Model name (without extension)                       [N/A]
 %    io      —  Linearization I/O object                             [N/A]
 %    time    —  Snapshot time for the operating point (default = 0)  [s]
-%    "trim"  —  Solve static equilibrium (default = false)           [N/A]
+%    "trim"  —  Solve static equilibrium (time is ignored)           [N/A]
 %
 %  Outputs:
-%    sys     —  System object                                        [N/A]
-%    op      —  Operating point                                      [FIX]
+%    sys     —  State-space system object                            [N/A]
+%    op      —  Operating point object                               [N/A]
 
 
 
