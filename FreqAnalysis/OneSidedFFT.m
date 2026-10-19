@@ -13,7 +13,8 @@
 %    ampVec      —  One-sided amplitude spectrum          [u]
 %    freqVec     —  One-sided frequency vector            [Hz]
 %
-%  Note: u denotes the unit of the generic input signal.
+%  Notes:
+%    —  u denotes the unit of the generic input signal.
 
 
 

@@ -17,7 +17,8 @@
 %    cosCoeffs     —  Vector of Fourier cosine coefficients (aN)    [u]
 %    sinCoeffs     —  Vector of Fourier sine coefficients (bN)      [u]
 %
-%  Note: u denotes the unit of the generic input signal.
+%  Notes:
+%    —  u denotes the unit of the generic input signal.
 
 
 
