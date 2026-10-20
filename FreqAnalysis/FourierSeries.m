@@ -3,19 +3,19 @@
 %  FOURIERSERIES Trigonometric Fourier series of a sampled periodic signal.
 %
 %  Usage:
-%    [signalOut,constCoeff,cosCoeffs,sinCoeffs] = FourierSeries(time,signalIn,fundPeriod,numHarmonics)
+%    [sigOut,a0,aN,bN] = FourierSeries(time,sigIn,fundT,nHarms)
 %
 %  Inputs:
-%    time          —  Time vector                                   [s]
-%    signalIn      —  Input signal                                  [u]
-%    fundPeriod    —  Fundamental period of the input signal        [s]
-%    numHarmonics  —  Number of harmonics of the series             [-]
+%    time    —  Time vector                                   [s]
+%    sigIn   —  Input signal                                  [u]
+%    fundT   —  Fundamental period of the input signal        [s]
+%    nHarms  —  Number of harmonics of the series             [-]
 %
 %  Outputs:
-%    signalOut     —  Output signal recontructed by Fourier Series  [u]
-%    constCoeff    —  Constant-term Fourier coefficient (a0)        [u]
-%    cosCoeffs     —  Vector of Fourier cosine coefficients (aN)    [u]
-%    sinCoeffs     —  Vector of Fourier sine coefficients (bN)      [u]
+%    sigOut  —  Output signal recontructed by Fourier Series  [u]
+%    a0      —  Constant-term Fourier coefficient (a0)        [u]
+%    aN      —  Vector of Fourier cosine coefficients (aN)    [u]
+%    bN      —  Vector of Fourier sine coefficients (bN)      [u]
 %
 %  Notes:
 %    —  u denotes the unit of the generic input signal.

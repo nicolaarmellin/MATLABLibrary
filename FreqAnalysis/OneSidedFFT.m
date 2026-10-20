@@ -3,26 +3,26 @@
 %  ONESIDEDFFT Compute one-sided Fourier Transform of a signal.
 %
 %  Usage:
-%    [ampVec,freqVec] = OneSidedFFT(signal,sampleFreq)
+%    [amp1,freq] = OneSidedFFT(sig,sampleFreq)
 %
 %  Inputs:
 %    signal      —  Input signal                          [u]
 %    sampleFreq  —  Sample frequency of the input signal  [Hz]
 %
 %  Outputs:
-%    ampVec      —  One-sided amplitude spectrum          [u]
-%    freqVec     —  One-sided frequency vector            [Hz]
+%    amp1        —  One-sided amplitude spectrum          [u]
+%    freq        —  One-sided frequency vector            [Hz]
 %
 %  Notes:
 %    —  u denotes the unit of the generic input signal.
 
 
 
-function [amp1,freq] = OneSidedFFT(sig,sFreq)
+function [amp1,freq] = OneSidedFFT(sig,sampleFreq)
 
     arguments (Input)
-        sig   (:,1) double
-        sFreq (1,1) double {mustBePositive}
+        sig        (:,1) double
+        sampleFreq (1,1) double {mustBePositive}
     end
 
     % compute Fourier Transform
@@ -38,5 +38,5 @@ function [amp1,freq] = OneSidedFFT(sig,sFreq)
     if mod(nSamples,2)~=0, amp1(end) = 2*amp1(end); end
 
     % build frequency vector
-    freq = sFreq*(0:floor(nSamples/2))'/nSamples;
+    freq = sampleFreq*(0:floor(nSamples/2))'/nSamples;
 end
