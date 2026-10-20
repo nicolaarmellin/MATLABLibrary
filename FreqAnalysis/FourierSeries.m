@@ -18,7 +18,7 @@
 %    bN      —  Vector of Fourier sine coefficients (bN)      [u]
 %
 %  Notes:
-%    —  u denotes the unit of the generic input signal.
+%    —  u denotes the unit of the generic signal.
 
 
 

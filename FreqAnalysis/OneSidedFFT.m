@@ -14,7 +14,7 @@
 %    freq        —  One-sided frequency vector            [Hz]
 %
 %  Notes:
-%    —  u denotes the unit of the generic input signal.
+%    —  u denotes the unit of the generic signal.
 
 
 
