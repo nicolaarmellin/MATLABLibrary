@@ -13,7 +13,7 @@
 %    natFreqs    —  Undamped natural frequencies                             [Hz]
 %    dampRatios  —  Damping ratios                                           [-]
 %    modalSys    —  Modal-form system                                        [N/A]
-%     .lambda    —  Retained poles                                           [rad/s]
+%     .poles     —  Retained poles                                           [1/s]
 %     .Bm        —  Modal input matrix                                       [x/(s*u)]
 %     .Cm        —  Modal output matrix                                      [y/x]
 %     .D         —  Feed-through matrix                                      [y/u]
@@ -87,11 +87,12 @@ function [natFreqs,dampRatios,modalSys] = ModalAnalysis(sys,nDOF)
     retainPoles = allPoles(idxRetPoles);
     natFreqs    = absPoles(idxModes)/(2*pi);
     dampRatios  = -real(allPoles(idxModes))./absPoles(idxModes);
- 
+    dampRatios(absPoles(idxModes)<=relTolZero*max(absPoles)) = NaN; % rigid-body modes —> undefined damping
+
     % modal form
     BmAll = eigVecs\B;
     condV = cond(eigVecs);
-    modalSys = struct("lambda",   retainPoles, ...
+    modalSys = struct("poles",    retainPoles, ...
                       "Bm",       BmAll(idxRetPoles,:), ...
                       "Cm",       C*eigVecs(:,idxRetPoles), ...
                       "D",        D, ...
