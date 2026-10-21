@@ -33,7 +33,7 @@ function [natFreqs,dampRatios,modalSys] = LinearAnalysis(sys,nDOF)
 
     arguments (Input)
         sys  (1,1) ss
-        nDOF (1,1) double {mustBeInteger,mustBePositive}
+        nDOF (1,1) double {mustBePositive,mustBeInteger}
     end
 
     % local constants
