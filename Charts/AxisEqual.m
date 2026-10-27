@@ -1,12 +1,27 @@
-%% Nicola Armellin - RaceUP Hybrid
+%% Nicola Armellin — RaceUP Hybrid
+%
+%  AXISEQUAL Set equal axis scaling and limits (optional) to axes/uiaxes object.
+%
+%  Usage:
+%    AxisEqual(ax,"Margin",margin)
+%    AxisEqual(ax,"TightLimits,true)
+%    AxisEqual(ax,"CenterOrigin",true)
+%
+%  Inputs:
+%    ax            —  Handle to axes/uiaxes object
+%    Margin        —  Padding around axes/uiaxes area
+%    TightLimits   —  Force axis limits to perfectly match data range (may conflict with CenterOrigin=true)
+%    CenterOrigin  —  Enforce symmetric axis limits (may conflict with TightLimits=true)
 
-function AxisEqual_(ax,opts)
+
+
+function AxisEqual(ax,opts)
 
     arguments (Input)
         ax                (1,1) {mustBeA(ax,["matlab.graphics.axis.Axes","matlab.ui.control.UIAxes"])} = gca
-        opts.margin       (1,1) double  = 0
-        opts.tightLimits  (1,1) logical = false
-        opts.centerOrigin (1,1) logical = false
+        opts.Margin       (1,1) double  = 0
+        opts.TightLimits  (1,1) logical = false
+        opts.CenterOrigin (1,1) logical = false
     end
 
     % ensure automatic rendering is complete
@@ -21,7 +36,7 @@ function AxisEqual_(ax,opts)
     side = min(w,h);
 
     % get data ranges
-    if opts.tightLimits
+    if opts.TightLimits
         [xMin,yMin] = deal(Inf);
         [xMax,yMax] = deal(-Inf);
         children    = ax.Children(:)';
@@ -34,8 +49,8 @@ function AxisEqual_(ax,opts)
             end
         end
         if all(isfinite([xMin,xMax,yMin,yMax]))&&(xMax>xMin)&&(yMax>yMin)
-            xPadding = opts.margin*(xMax-xMin);
-            yPadding = opts.margin*(yMax-yMin);
+            xPadding = opts.Margin*(xMax-xMin);
+            yPadding = opts.Margin*(yMax-yMin);
             ax.XLim  = [xMin-xPadding,xMax+xPadding];
             ax.YLim  = [yMin-yPadding,yMax+yPadding];
         end
@@ -50,7 +65,7 @@ function AxisEqual_(ax,opts)
     end
 
     % determine common square span and center
-    if opts.centerOrigin
+    if opts.CenterOrigin
         halfSpan = max(abs([xLim,yLim]));
         xCenter  = 0;
         yCenter  = 0;
@@ -85,7 +100,7 @@ function AxisEqual_(ax,opts)
     fig = ax;
     while ~isempty(fig)&&(~isa(fig,"matlab.ui.Figure")), fig = fig.Parent; end
     if ~isempty(fig)
-        lst = addlistener(fig,'SizeChanged',@(~,~)AxisEqual(ax,"tightLimits",opts.tightLimits,"margin",opts.margin,"centerOrigin",opts.centerOrigin));
+        lst = addlistener(fig,'SizeChanged',@(~,~)AxisEqual(ax,"tightLimits",opts.TightLimits,"margin",opts.Margin,"centerOrigin",opts.CenterOrigin));
         setappdata(ax,'AxisEqualListener',lst); % keep listener alive as long as ax exists
     end
 end

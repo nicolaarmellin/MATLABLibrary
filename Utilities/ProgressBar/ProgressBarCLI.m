@@ -1,17 +1,34 @@
-%% Nicola Armellin - RaceUP Team - Hybrid Division - Vehicle Dynamics
+%% Nicola Armellin — RaceUP Hybrid
+%
+%  PROGRESSBARCLI Create command-line progress bar with estimated remaining time.
+%
+%  Usage:
+%    pb = ProgressBarCLI(totIter)  —  Instantiate object
+%    pb.step()                     —  Incremental update (+1)
+%    pb.update(iter)               —  Explicit update (+iter)
+%    pb.delete()                   —  Destroy object
+%
+%  Inputs:
+%    totIter  —  Total number of iteration
+%    iter     —  Number of iterations to advance
+%
+%  Outputs:
+%    pb       —  Handle to object
+
+
 
 classdef ProgressBarCLI < ProgressBar
 
     properties (Access = private)
-        LastPrintLength; % length of last printed line (for safety, should be constant)
+        LastPrintLength;                                     % length of last printed line (for safety, should be constant)
     end
 
     methods (Access = public)
-        function obj = ProgressBarCLI(totIter) % builder
+        function obj = ProgressBarCLI(totIter)               % builder
             obj@ProgressBar(totIter);
             obj.LastPrintLength = 0;
         end
-        function delete(~) % destroyer
+        function delete(~)                                   % destroyer
             fprintf('\n');
         end
     end

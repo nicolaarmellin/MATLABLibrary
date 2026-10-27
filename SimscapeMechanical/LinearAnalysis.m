@@ -26,6 +26,8 @@
 %    —  u, y and x denote the units of the input signal, of the output signals and of the system states, respectively.
 %    —  If condV is close to 1, eigenvectors are nearly orthogonal and the decomposition is well conditioned; when condV is
 %       above 1e+8, eigenvectors are nearly linearly dependent and the modal form is unreliable.
+%
+%  Requires Control System Toolbox.
 
 
 

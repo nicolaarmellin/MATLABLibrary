@@ -26,6 +26,8 @@
 %    —  u and y denote the units of the input signal and of the output signals, respectively.
 %    —  The automatic grid spans 0.1*min(natFreq) to 10*max(natFreq) and includes the damped frequencies of the poles.
 %       Rigid-body poles (flagged by LinearAnalysis.m) are ignored when building the grid.
+%
+%  Requires Signal Procesing Toolbox.
  
  
  

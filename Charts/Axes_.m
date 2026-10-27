@@ -1,4 +1,18 @@
-%% Nicola Armellin - RaceUP Hybrid
+%% Nicola Armellin — RaceUP Hybrid
+%
+%  AXES_ Create axes/uiaxes object based on root figure type.
+%
+%  Usage:
+%    ax = Axes_(parent,fontSize)
+%
+%  Inputs:
+%    parent    —  Handle to parent object
+%    fontSize  —  Global font size of the axes
+%
+%  Outputs:
+%    ax        —  Handle to axes/uiaxes object
+
+
 
 function ax = Axes_(parent,fontSize)
 

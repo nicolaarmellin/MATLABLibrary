@@ -1,13 +1,22 @@
-%% Nicola Armellin - RaceUP Hybrid
+%% Nicola Armellin — RaceUP Hybrid
 %
-% logger = CMDLogger(filePath) — start mirroring cmd window to file
-% logger.delete()              — stop diary and destroy
+%  CMDWINDOW_LOGGER Log command window content to .txt file.
 %
-% NOTE
-%  MATLAB's diary() is a single global stream — there is only ever one active diary target for the whole MATLAB session. This class guards against
-%  two CMDLogger instances fighting over it: if one instance's diary is active, a second instance's call will warn and refuse rather than silently
-%  hijacking the stream. This guard only covers CMDLogger instances — it cannot detect or prevent code outside this class calling the diary(...)
-%  function directly. 
+%  Usage:
+%    logger = CMDWindow_Logger(filePath)  —  Instatiate object and start mirroring
+%    logger.delete()                      —  Stop diary and destroy object
+%
+%  Inputs:
+%    filePath  —  Path to .txt file
+%
+%  Outputs:
+%    logger    —  Handle to object
+%
+%  Note:
+%    MATLAB's diary() is a single global stream — there is only ever one active diary target for the whole MATLAB session.
+%    This class guards against two CMDLogger instances fighting over it: if one instance's diary is active, a second
+%    instance's call will warn and refuse rather than silently hijacking the stream. This guard only covers CMDLogger
+%    instances — it cannot detect or prevent code outside this class calling the diary(...) function directly. 
 
 
 

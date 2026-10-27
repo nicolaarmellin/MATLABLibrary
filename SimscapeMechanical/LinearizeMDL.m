@@ -15,6 +15,8 @@
 %  Outputs:
 %    sys     —  State-space system object                            [N/A]
 %    op      —  Operating point object                               [N/A]
+%
+%  Requires Simulink, Simulink Control Design, Simscape and Simscape Multibody (optional).
 
 
 
@@ -22,9 +24,9 @@ function [sys,op] = LinearizeMDL(mdl,io,time,trimOn)
 
     arguments (Input)
         mdl    (1,1) string
-        io     = [] % FIX
-        time   (1,1) double = 0
-        trimOn (1,1) string = ""
+        io     (1,:) linearize.IOPoint = []
+        time   (1,1) double            = 0
+        trimOn (1,1) string            = ""
     end
 
     % validate inputs

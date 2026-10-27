@@ -1,9 +1,26 @@
-%% Nicola Armellin - RaceUP Team - Hybrid Division - Vehicle Dynamics
+%% Nicola Armellin — RaceUP Hybrid
+%
+%  PROGRESSBARGUI Create graphical progress bar with estimated remaining time.
+%
+%  Usage:
+%    pb = ProgressBarGUI(totIter)  —  Instantiate object
+%    pb.step()                     —  Incremental update (+1)
+%    pb.update(iter)               —  Explicit update (+iter)
+%    pb.delete()                   —  Destroy object
+%
+%  Inputs:
+%    totIter  —  Total number of iteration
+%    iter     —  Number of iterations to advance
+%
+%  Outputs:
+%    pb       —  Handle to object
+
+
 
 classdef ProgressBarGUI < ProgressBar
 
     properties (Access = private)
-        Handle; % handle to waitbar graphic object
+        Handle;                                % handle to waitbar graphic object
     end
 
     methods (Access = public)
@@ -11,7 +28,7 @@ classdef ProgressBarGUI < ProgressBar
             obj@ProgressBar(totIter);
             obj.Handle = waitbar(0,'Progress: 0.00 % | Remaining: NaN s');
         end
-        function delete(obj) % destroyer
+        function delete(obj)                   % destroyer
             if ~isempty(obj.Handle) && ishandle(obj.Handle)
                 close(obj.Handle);
             end
