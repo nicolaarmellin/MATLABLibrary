@@ -1,7 +1,5 @@
 # MATLABLibrary
 
-MATLAB utilities for signal processing, mechanical-system analysis, plotting, and common workflows. Each function's header comments describe its detailed usage.
-
 ## Getting started
 
 Add the library folders to the MATLAB path once per session (replace the placeholder with your checkout location):
