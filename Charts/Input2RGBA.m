@@ -19,7 +19,7 @@ function RGBA = Input2RGBA(in)
     % color passed in RGB(A) form → stack alpha if needed
     if isnumeric(in)
         if size(in,2)==4, RGBA = in;
-        else,                 RGBA = [in,0.8*ones(size(in,1),1)];
+        else,             RGBA = [in,0.8*ones(size(in,1),1)];
         end
         return;
     end
